@@ -7,14 +7,15 @@ public class ContactTest {
 
     public static final int INVALID_CHOICE = -1;
     public static final int EXIT_CHOICE = 5;
-    static HashMap<String,String> list = new HashMap<>();
+    static HashMap<String, String> list = new HashMap<>();
+
     public static void main(String[] args) {
 
         Input input = new Input();
 
 
         int choice = INVALID_CHOICE;
-        while(choice != EXIT_CHOICE) {
+        while (choice != EXIT_CHOICE) {
             showMenu();
 
             choice = input.getInt(0, 5);
@@ -40,8 +41,8 @@ public class ContactTest {
 
     public static void showContactList() {
 
-        Contacts joey = new Contacts("Joey","123");
-        Contacts katara = new Contacts("Katara","456");
+        Contacts joey = new Contacts("Joey", "123");
+        Contacts katara = new Contacts("Katara", "456");
         Contacts kairo = new Contacts("Kairo", "789");
         list.put(joey.getContactName(), joey.getPhoneNumber());
         list.put(katara.getContactName(), katara.getPhoneNumber());
@@ -50,7 +51,7 @@ public class ContactTest {
     }
 
     public static void userMenuoption(int userPick) {
-        switch(userPick) {
+        switch (userPick) {
             case 1:
                 showContactList();
                 break;
@@ -60,7 +61,7 @@ public class ContactTest {
                 break;
             case 3:
                 // TODO: view movies in the drama category
-
+                searchContacts();
 //                dramaCategory();
                 break;
             case 4:
@@ -84,10 +85,9 @@ public class ContactTest {
         scanner.next();
         System.out.println("Enter number");
         String addNumber = scanner.next();
-        Contacts m = new Contacts(addName,addNumber);
-        list.put(m.getContactName(),m.getPhoneNumber());
+        Contacts m = new Contacts(addName, addNumber);
+        list.put(m.getContactName(), m.getPhoneNumber());
         System.out.println(list);
-
     }
 
     public static void deleteContact() {
@@ -101,7 +101,17 @@ public class ContactTest {
         } else {
             System.out.println("Contact does not exist");
         }
+    }
 
-
+    public static void searchContacts() {
+        System.out.println("Who do you wanna search for?");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(list.keySet());
+        String searchContact = scanner.next();
+        if (list.containsKey(searchContact)) {
+            System.out.println(list.get(searchContact));
+        } else {
+            System.out.println("No number for that name");
+        }
     }
 }
