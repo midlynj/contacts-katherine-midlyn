@@ -1,12 +1,13 @@
 package contacts;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class ContactTest {
 
     public static final int INVALID_CHOICE = -1;
     public static final int EXIT_CHOICE = 5;
-
+    static HashMap<String,String> list = new HashMap<>();
     public static void main(String[] args) {
 
         Input input = new Input();
@@ -21,6 +22,8 @@ public class ContactTest {
             userMenuoption(choice);
 
         }
+//        addContact();
+
 
     }
 
@@ -36,7 +39,7 @@ public class ContactTest {
     }
 
     public static void showContactList() {
-        HashMap<String,String> list = new HashMap<>();
+
         Contacts joey = new Contacts("Joey","123");
         Contacts katara = new Contacts("Katara","456");
         Contacts kairo = new Contacts("Kairo", "789");
@@ -53,7 +56,7 @@ public class ContactTest {
                 break;
             case 2:
                 // TODO: view movies in the musical category
-
+                addContact();
                 break;
             case 3:
                 // TODO: view movies in the drama category
@@ -73,7 +76,23 @@ public class ContactTest {
         }
     }
 
-    public static void addContact(Contacts a) {
+    public static void addContact() {
+        System.out.println("Enter name");
+        Scanner scanner = new Scanner(System.in);
+        String addName = scanner.next();
+        scanner.next();
+        System.out.println("Enter number");
+        String addNumber = scanner.next();
+        Contacts m = new Contacts(addName,addNumber);
+        list.put(m.getContactName(),m.getPhoneNumber());
+        System.out.println(list);
+
+    }
+
+    public static void deleteContact() {
+        System.out.println("Who do you wanna delete");
+        Scanner scanner = new Scanner(System.in);
+        String deleteContact = scanner.next();
 
     }
 }
