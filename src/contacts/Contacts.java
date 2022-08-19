@@ -2,9 +2,9 @@ package contacts;
 
 public class Contacts {
     public String contactName;
-    private String phoneNumber;
+    private int phoneNumber;
 
-    public Contacts(String contactName, String phoneNumber) {
+    public Contacts(String contactName, int phoneNumber) {
         this.contactName = contactName;
         this.phoneNumber = phoneNumber;
     }
@@ -17,11 +17,11 @@ public class Contacts {
         this.contactName = contactName;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }

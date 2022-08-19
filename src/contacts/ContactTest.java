@@ -20,7 +20,7 @@ public class ContactTest {
 
             choice = input.getInt(0, 5);
 
-            userMenuoption(choice);
+            userMenuOption(choice);
 
         }
 //        addContact();
@@ -41,39 +41,28 @@ public class ContactTest {
 
     public static void showContactList() {
 
-        Contacts joey = new Contacts("Joey", "123");
-        Contacts katara = new Contacts("Katara", "456");
-        Contacts kairo = new Contacts("Kairo", "789");
-        list.put(joey.getContactName(), joey.getPhoneNumber());
-        list.put(katara.getContactName(), katara.getPhoneNumber());
-        list.put(kairo.getContactName(), kairo.getPhoneNumber());
+        Contacts joey = new Contacts("Joey", 123);
+        Contacts katara = new Contacts("Katara", 456);
+        Contacts kairo = new Contacts("Kairo", 789);
+        list.put(joey.getContactName(), String.valueOf(joey.getPhoneNumber()));
+        list.put(katara.getContactName(), String.valueOf(katara.getPhoneNumber()));
+        list.put(kairo.getContactName(), String.valueOf(kairo.getPhoneNumber()));
         System.out.println(list.keySet());
     }
 
-    public static void userMenuoption(int userPick) {
+    public static void userMenuOption(int userPick) {
         switch (userPick) {
             case 1:
                 showContactList();
                 break;
             case 2:
-                // TODO: view movies in the musical category
                 addContact();
                 break;
             case 3:
-                // TODO: view movies in the drama category
                 searchContacts();
-//                dramaCategory();
                 break;
             case 4:
-                // TODO: view movies in the horror category
                 deleteContact();
-
-
-                break;
-            case 5:
-                // TODO: view movies in the scifi category
-//                scifiCategory();
-
                 break;
         }
     }
@@ -84,10 +73,9 @@ public class ContactTest {
         String addName = scanner.next();
         scanner.next();
         System.out.println("Enter number");
-        String addNumber = scanner.next();
+        int addNumber = scanner.nextInt();
         Contacts m = new Contacts(addName, addNumber);
-        list.put(m.getContactName(), m.getPhoneNumber());
-        System.out.println(list);
+        list.put(m.getContactName(), String.valueOf(m.getPhoneNumber()));
     }
 
     public static void deleteContact() {
