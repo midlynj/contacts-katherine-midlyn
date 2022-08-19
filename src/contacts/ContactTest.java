@@ -65,7 +65,8 @@ public class ContactTest {
                 break;
             case 4:
                 // TODO: view movies in the horror category
-//                horrorCategory();
+                deleteContact();
+
 
                 break;
             case 5:
@@ -92,7 +93,15 @@ public class ContactTest {
     public static void deleteContact() {
         System.out.println("Who do you wanna delete");
         Scanner scanner = new Scanner(System.in);
+        System.out.println(list.keySet());
         String deleteContact = scanner.next();
+        if (list.containsKey(deleteContact)) {
+            System.out.println(deleteContact + " is removed");
+            list.remove(deleteContact);
+        } else {
+            System.out.println("Contact does not exist");
+        }
+
 
     }
 }
