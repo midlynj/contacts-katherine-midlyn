@@ -12,17 +12,13 @@ public class ContactTest {
     public static final int INVALID_CHOICE = -1;
     public static final int EXIT_CHOICE = 5;
     static HashMap<String, String> list = new HashMap<>();
-    static List<String> trial = Arrays.asList("coffee");
-    static HashMap<String, String> mn = new HashMap<>();
     static ArrayList<String> numbers = new ArrayList<>();
 
 
     public static void main(String[] args) throws IOException {
-//       meep();
+
         showContactList();
-//        addContact();
-//        deleteContact();
-//       save();
+
         Input input = new Input();
 
 
@@ -35,7 +31,7 @@ public class ContactTest {
             userMenuOption(choice);
 
         }
-//        addContact();
+
 
 
     }
@@ -52,7 +48,7 @@ public class ContactTest {
     }
 
     public static void showContactList() {
-
+        addTelephonePic();
         Contacts joey = new Contacts("Joey", 123);
         Contacts katara = new Contacts("Katara", 456);
         Contacts kairo = new Contacts("Kairo", 789);
@@ -67,8 +63,7 @@ public class ContactTest {
         numbers.add(String.valueOf(kairo.getPhoneNumber()));
 
         System.out.println(list.keySet());
-//        meep();
-//       1
+
 
     }
 
@@ -103,7 +98,7 @@ public class ContactTest {
         try {
             Files.write(
                     Paths.get("data", "test.txt.txt"),
-                    Arrays.asList(m.getContactName()), // list with one item
+                    Arrays.asList(m.getContactName()),
                     StandardOpenOption.APPEND
             );
         } catch (IOException e) {
@@ -118,26 +113,13 @@ public class ContactTest {
         Scanner scanner = new Scanner(System.in);
         System.out.println(list.keySet());
         String deleteContact = scanner.next();
-//        for (int i = 0; i < numbers.size(); i++){
-//            numbers.remove(deleteContact + 1);
-//            numbers.remove(deleteContact);
-//
-//
-//
-//
-//        }
-//        if (numbers.contains(deleteContact)) {
+
             for (int i = 0; i < numbers.size(); i++) {
                 if (numbers.get(i).equals(deleteContact)) {
                     numbers.remove(i + 1);
-//                numbers.remove(deleteContact);
-//                numbers.remove(deleteContact);
                     numbers.remove(i);
 
 
-//                    System.out.println(deleteContact + " is removed");
-//                    list.remove(deleteContact);
-                    //numbers.remove(deleteContact);
                     save();
                     return;
                 }
@@ -158,19 +140,7 @@ public class ContactTest {
     }
 
 
-//    public static void meep() {
-//        List<String> chicken = new ArrayList<>();
-//        for (String n : list.keySet()) {
-//            chicken.add(n);
-//            System.out.println(n);
-//      } System.out.println(chicken);
-//
-//        }
-
         public static void save(){
-            String contactsFolder = "data";
-            String contactFile = "test.txt";
-//            Path Files.write(Path filepath, List<String> lines[, StandardOpenOption option])
             Path filepath = Paths.get("data", "test.txt.txt");
             try {
                 Files.write(filepath, numbers);
@@ -179,21 +149,50 @@ public class ContactTest {
             }
         }
 
-        public static void add() {
-            try {
-                Files.write(
-                        Paths.get("data", "test.txt.txt"),
-                        Arrays.asList(), // list with one item
-                        StandardOpenOption.APPEND
-                );
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        public static void addTelephonePic() {
+           System.out.print( """
+                             
+                                            | |
+                                            | |
+                                            | |
+                                            | |
+                                            | |
+                                            | |
+                                            | |
+                                            | |
+                                 _.--""\"""\""--;_
+                                //             \\\\
+                                ||   .-""\"-.   ||
+                                ||  /  ...  \\  ||
+                                || |  :::::  | ||
+                                ||  \\  '''  /  ||
+                                ||   '-...-'   ||
+                                |/.-----------.\\|
+                                ||.-""\"""\"""\"-.||
+                                |||___________|||
+                                ||[__][___][__]||
+                                ||=== ===== ===||
+                                |\\  ===   ===  /|
+                                | `'""\"""\"""\""` |
+                                |[TALK] === === |
+                                |.---..---..---.|
+                                ||_1_||_2_||_3_||
+                                |.---..---..---.|
+                                ||_4_||_5_||_6_||
+                                |.---..---..---.|
+                                ||_7_||_8_||_9_||
+                                |.---..---..---.|
+                                ||_*_||_0_||_#_||
+                                |____ _____ ____|
+                                |==== ===== ====|
+                                |====  ___  ====|
+                                |   .'`   `'.   |
+                                |  /  .:::.  \\  |
+                                \\ '  {CASIO}  ' /
+                                 `--.........--'
+                   """);
         }
 
-//    @Override
-//    public String toString() {
-//        return String.format(" %s", list.keySet().toString());
-//    }
+
     }
-//}
+
