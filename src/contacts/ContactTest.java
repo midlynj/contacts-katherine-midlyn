@@ -136,14 +136,13 @@ public class ContactTest {
 
 
 //                    System.out.println(deleteContact + " is removed");
-                    list.remove(deleteContact);
+//                    list.remove(deleteContact);
                     //numbers.remove(deleteContact);
                     save();
-
-                } else {
-                    System.out.println("Contact does not exist");
+                    return;
                 }
             }
+        System.out.println("that person doesnt exist");
     }
 
     public static void searchContacts() {
