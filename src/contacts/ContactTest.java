@@ -118,7 +118,7 @@ public class ContactTest {
                 if (numbers.get(i).equals(deleteContact)) {
                     numbers.remove(i + 1);
                     numbers.remove(i);
-
+                    list.remove(deleteContact);
 
                     save();
                     return;
